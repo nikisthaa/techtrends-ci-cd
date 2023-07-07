@@ -1,2 +1,5 @@
 venv
 secrets.txt
+.vagrant
+kubectl*
+*.log

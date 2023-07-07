@@ -16,7 +16,7 @@ ENV PATH=/root/.local:$PATH
 # Run init_db.py to initialize the database with pre-defined posts
 RUN python init_db.py
 
-# Expose port 3111 for the application
+# Expose port 7111 for the application
 EXPOSE 7111
 
 # Define the command to run the app using CMD which defaults to /bin/bash
