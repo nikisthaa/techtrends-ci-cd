@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Application
+metadata:
+  name: techtrends
+  namespace: argocd
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    helm:
+      valueFiles:
+      - values.yaml
+    path: helm
+    repoUrl: https://github.com/nikisthaa/techtrends-ci-cd
+    targetRevision: HEAD
