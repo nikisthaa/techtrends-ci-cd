@@ -9,9 +9,9 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
+    repoURL: https://github.com/nikisthaa/techtrends-ci-cd
+    targetRevision: HEAD
+    path: helm
     helm:
       valueFiles:
       - values.yaml
-    path: helm
-    repoUrl: https://github.com/nikisthaa/techtrends-ci-cd
-    targetRevision: HEAD
