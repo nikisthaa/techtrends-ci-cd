@@ -1,6 +1,7 @@
 namespace: sandbox
 replicaCount: 1
 image:
+  username: nikistha
   repository: techtrends
   tag: latest
   pullPolicy: IfNotPresent

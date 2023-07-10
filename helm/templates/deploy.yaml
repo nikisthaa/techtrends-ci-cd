@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: techtrends
-        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        image: "{{ .Values.image.username }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
         - containerPort: {{ .Values.containerPort }}
@@ -30,4 +30,4 @@ spec:
         resources:
           {{- toYaml .Values.resources | nindent 12 }}
       imagePullSecrets:
-      - name: regcred
+      - name: containersecrets

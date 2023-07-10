@@ -1,6 +1,9 @@
 namespace: prod
 replicaCount: 5
 image:
+  username: nikistha
+  repository: techtrends
+  tag: latest
   pullPolicy: Always
 service:
   port: 7111
