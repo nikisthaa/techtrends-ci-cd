@@ -24,4 +24,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: nikistha/techtrends:latest
+          tags: nikistha/techtrends:${{ github.sha }}, nikistha/techtrends:latest

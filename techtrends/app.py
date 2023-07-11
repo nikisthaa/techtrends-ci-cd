@@ -86,7 +86,13 @@ def create():
 
 @app.route('/healthz', methods=['GET'])
 def healthcheck():
-    return jsonify(result='OK - healthy'), 200
+    try:
+        conn = get_db_connection()
+        conn.execute('SELECT 1 FROM posts LIMIT 1')
+        return jsonify(result='OK - healthy'), 200
+    except sqlite3.Error as e:
+        # If there was an error in the try block above, we can't reach the database
+        return jsonify(result='ERROR - unhealthy', error=str(e)), 500
 
 
 @app.route('/metrics', methods=['GET'])
