@@ -1,8 +1,9 @@
+import sys
+import secrets
 import sqlite3
 import logging
 from datetime import datetime
-from flask import Flask, jsonify, json, render_template, request, url_for, redirect, flash
-from werkzeug.exceptions import abort
+from flask import Flask, jsonify, render_template, request, url_for, redirect, flash
 
 
 # Initialize the counter for database connections
@@ -10,6 +11,12 @@ db_connection_count = 0
 
 # Initialize the logger with the desired level
 logging.basicConfig(level=logging.DEBUG)
+
+# Create a stream handler to log to STDOUT
+stdout_handler = logging.StreamHandler()
+stdout_handler.setLevel(logging.DEBUG)
+stdout_handler.setFormatter(logging.Formatter('%(asctime)s [%(levelname)s] %(message)s'))
+logging.getLogger().addHandler(stdout_handler)
 
 # Function to get a database connection.
 # This function connects to database with the name `database.db`
@@ -37,7 +44,7 @@ def get_post(post_id):
 
 # Define the Flask application
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'your secret key'
+app.config['SECRET_KEY'] = secrets.token_hex(16)
 
 # Define the main route of the web application 
 @app.route('/')
