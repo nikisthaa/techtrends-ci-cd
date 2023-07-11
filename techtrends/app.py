@@ -13,7 +13,7 @@ db_connection_count = 0
 logging.basicConfig(level=logging.DEBUG)
 
 # Create a stream handler to log to STDOUT
-stdout_handler = logging.StreamHandler()
+stdout_handler = logging.StreamHandler(sys.stdout)
 stdout_handler.setLevel(logging.DEBUG)
 stdout_handler.setFormatter(logging.Formatter('%(asctime)s [%(levelname)s] %(message)s'))
 logging.getLogger().addHandler(stdout_handler)
